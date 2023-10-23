@@ -1,0 +1,42 @@
+.booklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 0.8rem;
+  padding: 10px;
+  background-color: var(--blue);
+  /* background-image: url("../../../public/images/bookshelf.jpg");
+  background-size: cover;
+*/
+}
+
+.book-info img {
+  max-width: 60%;
+}
+
+.book {
+  border: 1px var(--gray) solid;
+  padding: 10px;
+  text-align: center;
+  font-size: .8rem;;
+  background-color: var(--gray);
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book:hover {
+  transform: scale(1.05);
+  background-color: var(--green);
+}
+
+.book-info span {
+  font-family: "Open Sauce";
+  font-weight: 100;
+}
+
+.book-cover img {
+  width: 30%;
+}

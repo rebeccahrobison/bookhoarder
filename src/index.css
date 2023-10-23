@@ -1,13 +1,54 @@
+@font-face {
+  font-family: "Open Sauce";
+  src: url("../public/fonts/opensauce/OpenSauceSans-Black.ttf");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../public/fonts/dmsans/DMSans-Regular.ttf");
+}
+
+:root {
+  --white: #fcfbf9;
+  --black: #07060E;
+  --gray: #939697;
+  --blue: #335578;
+  --red: #D82602;
+  --green: #86B02F;
+
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "DM Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sauce", Helvetica, Arial, sans-serif;
+}
+
+.button-red {
+
+}
+
+.button-blue {
+
+}
+
+.button-green {
+  
+}
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+  color: var(--black)
 }

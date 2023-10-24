@@ -1,5 +1,9 @@
+import { Link } from "react-router-dom"
+
 export const FilterBar = () => {
   return (
-    "Hello from FilterBar"
+    <>
+      <Link to={`/addbook`}>+Add New Book</Link>
+    </>
   )
 }

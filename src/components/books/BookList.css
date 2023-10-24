@@ -4,7 +4,7 @@
   grid-auto-rows: 1fr;
   gap: 0.8rem;
   padding: 10px;
-  background-color: var(--blue);
+  background-color: var(--gray);
   /* background-image: url("../../../public/images/bookshelf.jpg");
   background-size: cover;
 */
@@ -15,11 +15,11 @@
 }
 
 .book {
-  border: 1px var(--gray) solid;
+  /* border: 1px var(--green) solid; */
   padding: 10px;
   text-align: center;
   font-size: .8rem;;
-  background-color: var(--gray);
+  background-color: var(--blue);
   border-radius: 5px;
   height: 100%;
   display: flex;

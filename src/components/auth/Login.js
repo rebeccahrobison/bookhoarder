@@ -1,11 +1,14 @@
-import { useState } from "react"
-
 import "./Login.css"
-import { LoginModal } from "./LoginModal"
+import { LoginModal } from "../modals/LoginModal"
+import { useNavigate } from "react-router-dom"
 // import logo from "public/images/bookshelf.jpg"
 
 export const Login = () => {
+  const navigate = useNavigate()
 
+  const handleRegisterBtn = () => {
+    navigate("/register")
+  }
   
   return (
       <div className="container-login">
@@ -19,7 +22,7 @@ export const Login = () => {
           </header>
           <div className="buttons-container">
             <LoginModal />
-            <button className="register">Register</button>
+            <button className="register" onClick={handleRegisterBtn}>Register</button>
           </div>
           <footer>"Never lose a book again"</footer>
         </section>

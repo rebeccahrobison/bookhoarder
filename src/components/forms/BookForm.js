@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { getAllUsers } from "../services/userServices"
 import { getAllShelves } from "../services/shelfService"
+import { AddShelfModal } from "../modals/AddShelfModal"
 
 export const BookForm = ({book, setBook, userBook, setUserBook}) => {
   const [users, setUsers] = useState([])
   const [shelves, setShelves] = useState([])
-  const [owner, setOwner] = useState({})
 
 
   const getAndSetAllUsers = () => {
@@ -24,6 +24,16 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
     getAndSetAllShelves()
   }, [])
 
+  const handleInputChange = (e) => {
+    const stateCopy = {...book}
+    if(e.target.name === "locationId") {
+      stateCopy[e.target.name] = parseInt(e.target.value)
+    } else {
+      stateCopy[e.target.name] = e.target.value
+    }
+    setBook(stateCopy)
+  }
+
 
   return (
     <form className="book-form">
@@ -32,13 +42,14 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
             <label>Title:</label>
             <input 
               type="text" 
+              name="title"
               value={book.title} 
               className="form-control"
-              onChange={(e) => {
-                const bookCopy = {...book}
-                bookCopy.title = e.target.value
-                setBook(bookCopy)
-              }}
+              onChange={handleInputChange
+                // const bookCopy = {...book}
+                // bookCopy.title = e.target.value
+                // setBook(bookCopy)
+              }
             />
           </div>
         </fieldset>
@@ -47,12 +58,13 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
             <label>Author:</label>
             <input 
               type="text" 
+              name="author"
               value={book.author} 
               className="form-control" 
-              onChange={(e) => {
-                const bookCopy = {...book}
-                bookCopy.author = e.target.value
-                setBook(bookCopy)
+              onChange={(e) => {handleInputChange(e)
+                // const bookCopy = {...book}
+                // bookCopy.author = e.target.value
+                // setBook(bookCopy)
               }}
             />
           </div>
@@ -62,12 +74,13 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
             <label>Genre:</label>
             <input 
               type="text" 
+              name="genre"
               value={book.genre} 
               className="form-control" 
-              onChange={(e) => {
-                const bookCopy = {...book}
-                bookCopy.genre = e.target.value
-                setBook(bookCopy)
+              onChange={(e) => {handleInputChange(e)
+                // const bookCopy = {...book}
+                // bookCopy.genre = e.target.value
+                // setBook(bookCopy)
               }}
             />
           </div>
@@ -77,12 +90,13 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
             <label>Cover Image:</label>
             <input 
               type="text" 
+              name="cover"
               value={book.cover} 
               className="form-control" 
-              onChange={(e) => {
-                const bookCopy = {...book}
-                bookCopy.cover = e.target.value
-                setBook(bookCopy)
+              onChange={(e) => {handleInputChange(e)
+                // const bookCopy = {...book}
+                // bookCopy.cover = e.target.value
+                // setBook(bookCopy)
               }}
             />
           </div>
@@ -97,7 +111,6 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
               onChange={(e) => {
                 const userBookCopy = {...userBook}
                 userBookCopy.userId = parseInt(e.target.value)
-                // userBookCopy.bookId = userBooks?.length + 1
                 setUserBook(userBookCopy)
               }}
             >
@@ -113,14 +126,14 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
         <fieldset>
           <div className="form-group">
             <label>Shelf:</label>
-            <select 
-              name="userId" 
+            <select
+              name="locationId"
               id="shelves" 
               value={book.locationId} 
-              onChange={(e) => {
-                const bookCopy = {...book}
-                bookCopy.locationId = parseInt(e.target.value)
-                setBook(bookCopy)
+              onChange={(e) => {handleInputChange(e)
+                // const bookCopy = {...book}
+                // bookCopy.locationId = parseInt(e.target.value)
+                // setBook(bookCopy)
               }}
             >
               <option className="form-group" value="0">Choose a Shelf</option>
@@ -130,7 +143,7 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
                 )
               })}
             </select>
-            <button>+Add Shelf</button>
+            <AddShelfModal getAndSetAllShelves={getAndSetAllShelves}/>
           </div>
         </fieldset>
       </form>

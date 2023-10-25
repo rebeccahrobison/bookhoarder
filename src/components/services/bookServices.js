@@ -9,32 +9,6 @@ export const getBookByBookId = (bookId) => {
     .then(res => res.json())
 }
 
-export const getBorrowedBooks = () => {
-  return fetch(`http://localhost:8088/borrowedBooks?_expand=book`)
-    .then(res => res.json())
-}
-
-export const getUserReadBooksByUserId = (userId) => {
-  return fetch(`http://localhost:8088/userReadBooks?userId=${userId}`)
-    .then(res => res.json())
-}
-
-export const deleteUserReadBook = (userReadBookId) => {
-  return fetch(`http://localhost:8088/userReadBooks/${userReadBookId}`, {
-    method: "DELETE"
-  })
-}
-
-export const addUserReadBook = (readBook) => {
-  return fetch(`http://localhost:8088/userReadBooks`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(readBook)
-  })
-}
-
 export const addBook = (book) => {
   return fetch(`http://localhost:8088/books`, {
     method: "POST",
@@ -53,5 +27,15 @@ export const getBookByTitle = (title) => {
 export const deleteBook = (bookId) => {
   return fetch(`http://localhost:8088/books/${bookId}`, {
     method: "DELETE"
+  })
+}
+
+export const updateBook = (book) => {
+  return fetch(`http://localhost:8088/books/${book.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(book)
   })
 }

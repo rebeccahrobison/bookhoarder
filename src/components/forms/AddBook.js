@@ -47,5 +47,3 @@ export const AddBook = () => {
 // Cancel button navigates to BookList
 // Save Book navigates to BookList
 // TODO: Barcode scanner button
-
-// I have a question about how id's work when posting to a database. I want to post an object1 to table1 in the database, and next post object2 with object1.id as a foreign key property to table2 in the database. Would it be best to get table1.length +1 to use as object2.object1Id, or better to fetch the updated table1 and filter it for the largest id number? I'm not sure how a database works if, for example, an object was deleted, does the next posted object have an id of the deleted object?

@@ -5,6 +5,9 @@ import { NavBar } from "../components/nav/NavBar"
 import { BookDetails } from "../components/books/BookDetails"
 import { AddBook } from "../components/forms/AddBook"
 import { EditBook } from "../components/forms/EditBook"
+import { Profile } from "../components/users/Profile"
+import { EditProfile } from "../components/forms/EditProfile"
+import { SearchResults } from "../components/books/SearchResults"
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({})
@@ -33,6 +36,12 @@ export const ApplicationViews = () => {
         <Route path="editbook">
           <Route path=":bookId" element={<EditBook />} />
         </Route>
+        <Route path="profile">
+          <Route index element={<Profile currentUser={currentUser}/>} />
+          <Route path=":userId" element={<Profile currentUser={currentUser}/>} />
+          <Route path="edit" element={<EditProfile currentUser={currentUser}/>} />
+        </Route>
+        <Route path="search" element={<SearchResults />} />
       </Route>
     </Routes>
   )

@@ -36,7 +36,8 @@ export const EditBook = () => {
     await updateBook(bookObj)
     const postedBook = await getBookByTitle(book.title)
     userBook.bookId = postedBook[0].id
-    updateUserBook(userBook).then(navigate(`/book/${book.id}`))
+    updateUserBook(userBook)
+      .then(() => navigate(`/book/${book.id}`))
   }
   
   return (

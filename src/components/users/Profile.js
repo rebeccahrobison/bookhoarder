@@ -18,7 +18,7 @@ export const Profile = ({currentUser}) => {
   }, [])
 
   useEffect(() => {
-    console.log(userId)
+    console.log("userId", userId)
     if(!userId) {
       const foundUser = users.find(user => user.id === currentUser.id)
       setUser(foundUser)
@@ -29,7 +29,12 @@ export const Profile = ({currentUser}) => {
   }, [currentUser, users, userId])
 
   useEffect(() => {
-    getUserBooksByUserId(user?.id).then(data => setUserReadBooks(data))
+    console.log(user?.id)
+    if(user) {
+      getUserBooksByUserId(user?.id).then(data => {
+        console.log("data", data)
+        setUserReadBooks(data)})
+    }
   }, [user])
 
   const handleEditProfileBtn = () => {

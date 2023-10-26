@@ -53,7 +53,7 @@ export const NavBar = () => {
             
           </li>
           <Link className="navbar-link" to="/profile">
-            <li className="navbar-item">Profile</li>
+            <li className="navbar-item profile">Profile</li>
           </Link>
           
           {localStorage.getItem("bookhoarder_user") ? (

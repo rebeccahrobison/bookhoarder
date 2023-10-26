@@ -11,8 +11,8 @@ export const FilterBar = ({ selectedOwner, setSelectedOwner }) => {
   
   
   return (
-    <>
-      <Link to={`/addbook`}>+Add New Book</Link>
+    <div className="filter-bar">
+      <Link to={`/addbook`}><span className="add-book">+Add A New Book</span></Link>
       <fieldset>
         <select name="ownerId"
           id="owners"
@@ -31,7 +31,6 @@ export const FilterBar = ({ selectedOwner, setSelectedOwner }) => {
           })}
         </select>
       </fieldset>
-
-    </>
+    </div>
   )
 }

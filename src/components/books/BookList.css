@@ -1,6 +1,6 @@
 .booklist {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 1fr;
   gap: 0.8rem;
   padding: 10px;
@@ -10,12 +10,27 @@
 */
 }
 
-/* .book-info .cover {
-  max-height: 200px;
-} */
+.book-info .cover {
+  height: 50%;
+}
+
+.book-info-container {
+  padding: 1.01rem;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
 
 .book-info img {
-  max-width: 60%;
+  max-width: 70%;
+}
+
+.book-info {
+  margin-bottom: 2px;
 }
 
 .book {

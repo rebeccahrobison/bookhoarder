@@ -60,10 +60,10 @@ export const BookDetails = () => {
     setBorrowedBook(foundBorrowedBook[0])
   }, [borrowedBooks, bookId])
 
-  useEffect(() => {
-    const foundBorrowedBook = borrowedBooks.filter(book => book.bookId === parseInt(bookId))
-    setBorrowedBook(foundBorrowedBook[0])
-  }, [borrowedBooks, bookId])
+  // useEffect(() => {
+  //   const foundBorrowedBook = borrowedBooks.filter(book => book.bookId === parseInt(bookId))
+  //   setBorrowedBook(foundBorrowedBook[0])
+  // }, [borrowedBooks, bookId])
 
 
 
@@ -102,13 +102,14 @@ export const BookDetails = () => {
       await deleteUserReadBook(userReadBook?.id)
     }
     await deleteBook(bookId)
-    await deleteUserBook(book?.userBooks?.id)
+    // await deleteUserBook(book?.userBooks?.id)
     navigate(`/`)
   }
 
   const handleEdit = () => {
     navigate(`/editbook/${bookId}`)
   }
+
 
   return (
     <div className="book-details-container">

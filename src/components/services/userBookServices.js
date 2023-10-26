@@ -30,6 +30,11 @@ export const deleteUserBook = (userBookId) => {
 }
 
 export const getUserBooksByUserId = (userId) => {
-  return fetch(`http://localhost:8088/userBooks?userId=${userId}`)
+  console.log("userId in fetch", userId)
+  // return fetch(`http://localhost:8088/userBooks?userId=${userId}`)
+  //   .then(res => res.json())
+  const userbookfetch = fetch(`http://localhost:8088/userBooks?userId=${userId}`)
     .then(res => res.json())
+  console.log("userbookfetch", userbookfetch)
+  return userbookfetch
 }

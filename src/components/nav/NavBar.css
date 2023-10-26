@@ -10,25 +10,25 @@
 }
 
 .navbar-logo {
-  width: 55%;
+  width: 45%;
   margin: 0 0 0 .2rem;
 }
 
 .navbar-logo img {
-  width: 30%;
+  width: 40%;
 }
 
 .navbar-items {
   display: flex;
-  width: 40%;
+  width: 47%;
   justify-content: space-between;
   padding: 0;
-  margin: 0;
+  margin: 0 10px 0 0;
   align-items: center;
 }
 
 .navbar-item {
-  flex-basis: 15%;
+  flex-basis: 10%;
   list-style-type: none;
   text-align: center;
 }
@@ -36,9 +36,19 @@
 .navbar-link {
   text-decoration: none;
   list-style-type: none;
-  color: white;
+  color: black;
 }
 
 .navbar-link:hover {
-  color: blue;
+  color: var(--red);
+  text-shadow: 1px 1px 1px var(--blue);
+}
+
+.navbar-item form {
+  display: flex;
+}
+
+.navbar-items .profile:hover {
+  color: var(--green);
+  text-shadow: 1px 1px 3px var(--blue);
 }

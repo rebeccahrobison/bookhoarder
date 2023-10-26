@@ -13,7 +13,9 @@ export const AddShelfModal = ({getAndSetAllShelves}) => {
 
   const handleAddShelfBtn = () => {
     const shelfObj = {shelf: shelfName}
-    addShelf(shelfObj).then(getAndSetAllShelves()).then(handleClose())
+    addShelf(shelfObj)
+      .then(() => getAndSetAllShelves()) // Wrapped the function in a callback, ensures they are executed after addShelf Promise has resolved
+      .then(() => handleClose())
   }
 
   return (

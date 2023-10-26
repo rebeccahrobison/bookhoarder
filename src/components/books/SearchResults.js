@@ -1,15 +1,13 @@
-import { Link, useLoaderData, useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 export const SearchResults = () => {
 
   const location = useLocation()
   const filteredBooks = location.state
-  console.log(filteredBooks)
   
   
   return (
     <div className="booklist-container">
-      {/* <FilterBar /> */}
       <div className="booklist">
         {filteredBooks.map(bookObj => {
           return (

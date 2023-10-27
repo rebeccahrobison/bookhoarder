@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getBookByBookId, getBookByTitle, updateBook } from "../services/bookServices"
 import { BookForm } from "./BookForm"
 import { updateUserBook } from "../services/userBookServices"
+import { Button } from "react-bootstrap"
 
 export const EditBook = () => {
   const [book, setBook] = useState({})
@@ -20,6 +21,10 @@ export const EditBook = () => {
       setUserBook(book?.userBooks[0])
     }
   }, [book])
+
+  const handleCancelBtn = () => {
+    navigate((`/book/${book.id}`))
+  }
 
   const handleEditBookBtn = async(e) => {
     e.preventDefault()
@@ -42,11 +47,11 @@ export const EditBook = () => {
   
   return (
     <div className="editbook-container">
-      <h2>Edit A Book From Your Hoard</h2>
+      <h4>Edit A Book From Your Hoard</h4>
       <BookForm book={book} setBook={setBook} userBook={userBook} setUserBook={setUserBook}/>
       <div className="buttons-container">
-        <button>Cancel</button>
-        <button onClick={e => {handleEditBookBtn(e)}}>Edit Book</button>
+        <Button variant="primary" onClick={e => {handleEditBookBtn(e)}}>Save Book</Button>
+        <Button variant="danger" onClick={handleCancelBtn}>Cancel</Button>
       </div>
     </div>
   )

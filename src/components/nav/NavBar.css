@@ -1,26 +1,28 @@
-.navbar {
+.navbar-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  background-color: var(--gray);
+  background-color: var(--white);
   justify-content: space-between;
   width: 100%;
-  padding: .5rem;
-  margin: 0;
+  height: 5vh;
+  padding: .2rem;
+  margin-bottom: 10px;
 }
 
 .navbar-logo {
-  width: 45%;
-  margin: 0 0 0 .2rem;
+  /* width: 45%; */
+  margin: 0 0 0 .5rem;
 }
 
 .navbar-logo img {
-  width: 40%;
+  height: 4vh;
+  /* width: 40%; */
+  /* border-radius: 10px; */
 }
 
 .navbar-items {
   display: flex;
-  width: 47%;
   justify-content: space-between;
   padding: 0;
   margin: 0 10px 0 0;
@@ -28,9 +30,9 @@
 }
 
 .navbar-item {
-  flex-basis: 10%;
   list-style-type: none;
   text-align: center;
+  margin: 0 10px;
 }
 
 .navbar-link {
@@ -41,14 +43,18 @@
 
 .navbar-link:hover {
   color: var(--red);
-  text-shadow: 1px 1px 1px var(--blue);
+  text-shadow: 1px 1px 1px var(--gray);
 }
 
 .navbar-item form {
   display: flex;
 }
 
+.navbar-item form input {
+  width: 225px;
+}
+
 .navbar-items .profile:hover {
   color: var(--green);
-  text-shadow: 1px 1px 3px var(--blue);
+  text-shadow: 1px 1px 2px var(--gray);
 }

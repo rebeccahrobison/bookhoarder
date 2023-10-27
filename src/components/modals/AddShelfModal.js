@@ -19,9 +19,9 @@ export const AddShelfModal = ({getAndSetAllShelves}) => {
   }
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        +Add Shelf
+    <div className="addshelf">
+      <Button variant="secondary" onClick={handleShow}>
+        Add Shelf
       </Button>
 
       <Modal
@@ -42,12 +42,12 @@ export const AddShelfModal = ({getAndSetAllShelves}) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={e => handleClose(e)}>
+          <Button variant="danger" onClick={e => handleClose(e)}>
             Close
           </Button>
           <Button variant="primary" onClick={handleAddShelfBtn}>Save Shelf</Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   )
 }

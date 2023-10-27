@@ -1,4 +1,77 @@
+.book-details-container {
+  display: flex;
+  flex-direction: column;
+  /* width: 50%; */
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 10%;
+}
+
+.book-details-cover {
+  text-align: left;
+  width: 60%;
+  margin: 10px;
+}
+
+.book-details-cover img {
+  width: 100%;
+}
+
+.book-details {
+  display: flex;
+  align-items: center;
+  background-color: var(--gray);
+  padding: 15px;
+  margin: 15px;
+  border-radius: 10px;
+  height: 100%;
+  width: 95vh;
+}
+
+.book-info-cont {
+  width: 70%;
+  margin: 10px;
+  background-color: var(--white);
+  padding: .5rem .7rem;
+  border-radius: 10px;
+}
+
+.book-info {
+  display: flex;
+  width: 100%;
+}
+
 .book-info span {
   font-family: "Open Sauce";
   font-weight: 100;
+  margin-right: 5px;
+}
+
+.book-info input {
+  accent-color: var(--green);
+}
+
+.book-info .owner {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.book-info .owner:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.detail-btn {
+  margin: 3px;
+}
+
+.read-status label {
+  font-size: .75rem;
+  width: 110px;
 }

@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getAllUsers } from "../services/userServices"
 import { getUserBooksByUserId } from "../services/userBookServices"
+import { getUserReadBooksByUserId } from "../services/userReadServices"
 
 export const Profile = ({currentUser}) => {
   const [users, setUsers] = useState([])
   const [user, setUser] = useState({})
+  const [userBooks, setUserBooks] = useState([])
   const [userReadBooks, setUserReadBooks] = useState([])
 
   const userId = useParams().userId
@@ -18,7 +20,6 @@ export const Profile = ({currentUser}) => {
   }, [])
 
   useEffect(() => {
-    console.log("userId", userId)
     if(!userId) {
       const foundUser = users.find(user => user.id === currentUser.id)
       setUser(foundUser)
@@ -29,11 +30,15 @@ export const Profile = ({currentUser}) => {
   }, [currentUser, users, userId])
 
   useEffect(() => {
-    console.log(user?.id)
     if(user) {
       getUserBooksByUserId(user?.id).then(data => {
-        console.log("data", data)
-        setUserReadBooks(data)})
+        setUserBooks(data)})
+    }
+  }, [user])
+
+  useEffect(() => {
+    if(user) {
+      getUserReadBooksByUserId(user?.id).then(data => setUserReadBooks(data))
     }
   }, [user])
 
@@ -55,7 +60,11 @@ export const Profile = ({currentUser}) => {
         </div>
         <div className="profile-books">
           <h2>Number of Books Owned: </h2>
-          <div className="books-owned">{userReadBooks?.length}</div>
+          <div className="books-owned">{userBooks?.length}</div>
+        </div>
+        <div className="profile-books">
+          <h2>Number of Books Read: </h2>
+          <div className="books-read">{userReadBooks?.length}</div>
         </div>
       </div>
       {

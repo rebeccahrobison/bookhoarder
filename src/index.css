@@ -23,7 +23,7 @@ body {
   font-family: "DM Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--gray);
+  background-color: var(--white);
 }
 
 code {
@@ -59,13 +59,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: rgb(93, 142, 190);
+  background-color:#21384e;
   border: none;
 }
 
 .btn-secondary {
-  background-color: var(--gray);
+  background-color: var(--green);
   border:none;
+}
+
+.btn-secondary:hover {
+  background-color: #75992c;
+}
+
+.btn-danger {
+  background-color: #D82602;
+}
+
+.btn-danger:hover {
+  background-color: #a01c02;
 }
 
 a {

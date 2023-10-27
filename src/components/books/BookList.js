@@ -38,10 +38,10 @@ export const BookList = () => {
             <div key={bookObj.id}>
               <Link to={`/book/${bookObj?.id}`}>
                 <div className="book">
-                  <div className="book-info cover"><img src={bookObj?.cover} alt="Cover of book"/></div>
+                  <div id="book-info-cover" className="book-info cover"><img src={bookObj?.cover} alt="Cover of book"/></div>
                   <div className="book-info-container">
-                    <div className="book-info"><span>Title: </span>{bookObj.title}</div>
-                    <div className="book-info"><span>Author: </span>{bookObj.author}</div>
+                    <div className="book-info title">{bookObj.title}</div>
+                    <div className="book-info author">by {bookObj.author}</div>
                   </div>
                 </div>
               </Link>

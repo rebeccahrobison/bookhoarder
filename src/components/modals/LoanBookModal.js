@@ -21,7 +21,7 @@ export const LoanBookModal = ({ bookId, getAllBorrowedBooks }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" className="detail-btn" onClick={handleShow}>
         Loan Book
       </Button>
 
@@ -43,8 +43,8 @@ export const LoanBookModal = ({ bookId, getAllBorrowedBooks }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={e => handleClose(e)}>
-            Close
+          <Button variant="danger" onClick={e => handleClose(e)}>
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleLoanBookBtn}>Loan Book</Button>
         </Modal.Footer>

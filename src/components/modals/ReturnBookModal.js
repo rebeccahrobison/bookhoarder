@@ -12,12 +12,14 @@ export const ReturnBookModal = ({ bookId, borrowedBooks, getAllBorrowedBooks, bo
   const handleShow = () => setShow(true);
 
   const handleReturnBookBtn = () => {
-    deleteBorrowedBook(borrowedBook.id).then(getAllBorrowedBooks()).then(handleClose())
+    deleteBorrowedBook(borrowedBook.id)
+    .then(() => getAllBorrowedBooks())
+    .then(() => handleClose())
   }
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" className="detail-btn" onClick={handleShow}>
         Return Book
       </Button>
 
@@ -34,8 +36,8 @@ export const ReturnBookModal = ({ bookId, borrowedBooks, getAllBorrowedBooks, bo
           <p>Return book that was borrowed by {borrowedBook?.borrowerName}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={e => handleClose(e)}>
-            Close
+          <Button variant="danger" onClick={e => handleClose(e)}>
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleReturnBookBtn}>Return Book</Button>
         </Modal.Footer>

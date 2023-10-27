@@ -2,8 +2,9 @@ import { useEffect, useState } from "react"
 import { getAllUsers } from "../services/userServices"
 import { getAllShelves } from "../services/shelfService"
 import { AddShelfModal } from "../modals/AddShelfModal"
+import "./BookForm.css"
 
-export const BookForm = ({book, setBook, userBook, setUserBook}) => {
+export const BookForm = ({ book, setBook, userBook, setUserBook }) => {
   const [users, setUsers] = useState([])
   const [shelves, setShelves] = useState([])
 
@@ -25,8 +26,8 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
   }, [])
 
   const handleInputChange = (e) => {
-    const stateCopy = {...book}
-    if(e.target.name === "locationId") {
+    const stateCopy = { ...book }
+    if (e.target.name === "locationId") {
       stateCopy[e.target.name] = parseInt(e.target.value)
     } else {
       stateCopy[e.target.name] = e.target.value
@@ -37,103 +38,93 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
 
   return (
     <form className="book-form">
-        <fieldset>
-          <div className="form-group">
-            <label>Title:</label>
-            <input 
-              type="text" 
-              name="title"
-              value={book.title} 
-              className="form-control"
-              onChange={handleInputChange
-                // const bookCopy = {...book}
-                // bookCopy.title = e.target.value
-                // setBook(bookCopy)
-              }
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label>Author:</label>
-            <input 
-              type="text" 
-              name="author"
-              value={book.author} 
-              className="form-control" 
-              onChange={(e) => {handleInputChange(e)
-                // const bookCopy = {...book}
-                // bookCopy.author = e.target.value
-                // setBook(bookCopy)
-              }}
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label>Genre:</label>
-            <input 
-              type="text" 
-              name="genre"
-              value={book.genre} 
-              className="form-control" 
-              onChange={(e) => {handleInputChange(e)
-                // const bookCopy = {...book}
-                // bookCopy.genre = e.target.value
-                // setBook(bookCopy)
-              }}
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label>Cover Image:</label>
-            <input 
-              type="text" 
-              name="cover"
-              value={book.cover} 
-              className="form-control" 
-              onChange={(e) => {handleInputChange(e)
-                // const bookCopy = {...book}
-                // bookCopy.cover = e.target.value
-                // setBook(bookCopy)
-              }}
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label>Owned By:</label>
-            <select 
-              name="userId" 
-              id="owners"
-              value={userBook.userId}
-              onChange={(e) => {
-                const userBookCopy = {...userBook}
-                userBookCopy.userId = parseInt(e.target.value)
-                setUserBook(userBookCopy)
-              }}
-            >
-              <option className="form-group" value="0">Choose an Owner</option>
-              {users.map(user => {
-                return(
-                  <option key={user.id} value={user.id}>{user.name}</option>
-                )
-              })}
-            </select>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label>Shelf:</label>
+      <fieldset>
+        <div className="form-group">
+          <label>Title:</label>
+          <input
+            type="text"
+            name="title"
+            value={book.title}
+            className="form-control"
+            onChange={handleInputChange
+            }
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label>Author:</label>
+          <input
+            type="text"
+            name="author"
+            value={book.author}
+            className="form-control"
+            onChange={(e) => {
+              handleInputChange(e)
+            }}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label>Genre:</label>
+          <input
+            type="text"
+            name="genre"
+            value={book.genre}
+            className="form-control"
+            onChange={(e) => {
+              handleInputChange(e)
+            }}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label>Cover Image:</label>
+          <input
+            type="text"
+            name="cover"
+            value={book.cover}
+            className="form-control"
+            onChange={(e) => {
+              handleInputChange(e)
+            }}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label>Owned By:</label>
+          <select
+            name="userId"
+            id="owners"
+            value={userBook.userId}
+            onChange={(e) => {
+              const userBookCopy = { ...userBook }
+              userBookCopy.userId = parseInt(e.target.value)
+              setUserBook(userBookCopy)
+            }}
+          >
+            <option className="form-group" value="0">Choose an Owner</option>
+            {users.map(user => {
+              return (
+                <option key={user.id} value={user.id}>{user.name}</option>
+              )
+            })}
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label>Shelf:</label>
+          <div className="addshelf-container">
             <select
               name="locationId"
-              id="shelves" 
-              value={book.locationId} 
-              onChange={(e) => {handleInputChange(e)
-                // const bookCopy = {...book}
-                // bookCopy.locationId = parseInt(e.target.value)
-                // setBook(bookCopy)
+              id="shelves"
+              value={book.locationId}
+              onChange={(e) => {
+                handleInputChange(e)
               }}
             >
               <option className="form-group" value="0">Choose a Shelf</option>
@@ -143,9 +134,10 @@ export const BookForm = ({book, setBook, userBook, setUserBook}) => {
                 )
               })}
             </select>
-            <AddShelfModal getAndSetAllShelves={getAndSetAllShelves}/>
+            <AddShelfModal getAndSetAllShelves={getAndSetAllShelves} />
           </div>
-        </fieldset>
-      </form>
+        </div>
+      </fieldset>
+    </form>
   )
 }

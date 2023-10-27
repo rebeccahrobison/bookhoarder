@@ -7,7 +7,8 @@ import { LoanBookModal } from "../modals/LoanBookModal"
 import { ReturnBookModal } from "../modals/ReturnBookModal"
 import { deleteBorrowedBook, getBorrowedBooks } from "../services/borrowedServices"
 import { addUserReadBook, deleteUserReadBook, getUserReadBooksByUserId } from "../services/userReadServices"
-import { deleteUserBook } from "../services/userBookServices"
+import { Button } from "react-bootstrap"
+// import { deleteUserBook } from "../services/userBookServices"
 
 export const BookDetails = () => {
   const [book, setBook] = useState({})
@@ -114,14 +115,14 @@ export const BookDetails = () => {
   return (
     <div className="book-details-container">
       <div className="book-details">
-        <div className="book-cover">
+        <div className="book-details-cover">
           <img src={book?.cover} alt="Current book cover"/>
         </div>
-        <div className="book-info-container">
-          <div className="book-info"><span>Title: </span>"{book?.title}"</div>
-          <div className="book-info"><span>Author: </span>{book?.author}</div>
-          <div className="book-info"><span>Genre: </span>{book?.genre}</div>
-          <div className="book-info"><span>Owned By: </span><Link to={`/profile/${bookOwner?.id}`}>{bookOwner?.name}</Link></div>
+        <div className="book-info-cont">
+          <div className="book-info"><span className="info">Title: </span>"{book?.title}"</div>
+          <div className="book-info"><span className="info">Author: </span>{book?.author}</div>
+          <div className="book-info"><span className="info">Genre: </span>{book?.genre}</div>
+          <div className="book-info"><span className="info">Owned By: </span><Link to={`/profile/${bookOwner?.id}`}><div className="owner">{bookOwner?.name}</div></Link></div>
           {isBorrowed() ? 
             (<div className="book-info"><span>Borrowed By: </span>{borrowedBook?.borrowerName}</div>) 
           : (<div className="book-info"><span>Location: </span>{book?.location?.shelf}</div>)
@@ -131,19 +132,20 @@ export const BookDetails = () => {
               <span>Read Status: </span>
               {isRead() ? ("Read") : ("Unread")}
             </div>
-            <input type="checkbox" checked={isRead()} onChange={handleCheck} />
+            <label for="read">Change Status</label>
+            <input type="checkbox" name="read" checked={isRead()} onChange={handleCheck} />
           </div>
         </div>
       </div>
-
-      <button onClick={handleEdit}>Edit Book</button>
-      <button onClick={handleDelete}>Delete Book</button>
-      {isBorrowed() ? 
-        (<ReturnBookModal bookId={bookId} borrowedBook={borrowedBook} getAllBorrowedBooks={getAllBorrowedBooks}/>) 
-        : 
-        (<LoanBookModal bookId={bookId} getAllBorrowedBooks={getAllBorrowedBooks}/>)
-      }
-      
+      <div className="btn-container">
+        <Button variant="primary" className="detail-btn" onClick={handleEdit}>Edit Book</Button>
+        <Button variant="danger" className="detail-btn" onClick={handleDelete}>Delete Book</Button>
+        {isBorrowed() ? 
+          (<ReturnBookModal bookId={bookId} borrowedBook={borrowedBook} getAllBorrowedBooks={getAllBorrowedBooks}/>) 
+          : 
+          (<LoanBookModal bookId={bookId} getAllBorrowedBooks={getAllBorrowedBooks}/>)
+        }
+      </div>
 
     </div>
   )

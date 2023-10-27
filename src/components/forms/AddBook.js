@@ -3,6 +3,7 @@ import { BookForm } from "./BookForm"
 import { addBook, getAllBooks, getBookByTitle } from "../services/bookServices"
 import { useNavigate } from "react-router-dom"
 import { addUserBook } from "../services/userBookServices"
+import { Button } from "react-bootstrap"
 
 export const AddBook = () => {
   const [book, setBook] = useState(
@@ -23,13 +24,17 @@ export const AddBook = () => {
     addUserBook(userBook).then(navigate(`/`))
   }
 
+  const handleDeleteBtn = () => {
+    navigate("/")
+  }
+
   return (
     <div className="addbook-container">
       <h2>Add A New Book To Your Hoard</h2>
       <BookForm book={book} setBook={setBook} userBook={userBook} setUserBook={setUserBook}/>
       <div className="buttons-container">
-        <button>Cancel</button>
-        <button onClick={e => {handleAddBook(e)}}>Add Book</button>
+        <Button variant="primary" onClick={e => {handleAddBook(e)}}>Add Book</Button>
+        <Button variant="danger">Cancel</Button>
       </div>
     </div>
   )

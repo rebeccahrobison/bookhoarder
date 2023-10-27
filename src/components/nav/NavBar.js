@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import "./NavBar.css"
 import { useEffect, useState } from "react"
 import { getAllBooks } from "../services/bookServices"
+import { Button } from "react-bootstrap"
 
 export const NavBar = () => {
   const [books, setBooks] = useState([])
@@ -34,7 +35,7 @@ export const NavBar = () => {
 
   return (
     <div>
-      <div className="navbar">
+      <div className="navbar-container">
         <div className="navbar-logo">
           <Link className="navbar-link" to="/">
             <img src="/images/BookHoarder.png" alt="BookHoarder Logo"/>
@@ -48,7 +49,7 @@ export const NavBar = () => {
                 placeholder="Search Your Book Hoard" 
                 onChange={e => setSearchTerm(e.target.value)}
               />
-              <input type="submit" onClick={e => handleSearch(e)} value="Search"/>
+              <Button className="primary" type="submit" onClick={e => handleSearch(e)} value="Search">Search</Button>
             </form>
             
           </li>

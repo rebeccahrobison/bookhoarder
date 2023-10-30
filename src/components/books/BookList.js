@@ -7,6 +7,7 @@ import { getUserBooksByUserId } from "../services/userBookServices"
 
 export const BookList = () => {
   const [allBooks, setAllBooks] = useState([])
+  // const [userBooks, setUserBooks] = useState([])
   const [selectedOwner, setSelectedOwner] = useState({id: 0})
   const [filteredBooks, setFilteredBooks] = useState([])
 
@@ -31,7 +32,7 @@ export const BookList = () => {
 
   return (
     <div className="booklist-container">
-      <FilterBar selectedOwner={selectedOwner} setSelectedOwner={setSelectedOwner}/>
+      <FilterBar selectedOwner={selectedOwner} setSelectedOwner={setSelectedOwner} filteredBooks={filteredBooks} setFilteredBooks={setFilteredBooks}/>
       <div className="booklist">
         {filteredBooks.map(bookObj => {
           return (

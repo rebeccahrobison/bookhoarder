@@ -28,7 +28,7 @@ export const ApplicationViews = () => {
           </>
         }
       >
-        <Route index element={<BookList />} />
+        <Route index element={<BookList currentUser={currentUser} />} />
         <Route path="book">
           <Route path=":bookId" element={<BookDetails currentUser={currentUser} />} />
         </Route>

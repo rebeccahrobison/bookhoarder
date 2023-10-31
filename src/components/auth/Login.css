@@ -6,19 +6,40 @@
 .img-container {
   background-image: url("C:\Users\rebec\workspace\bookhoarder\public\images\bookshelf.jpg");
   background-size: cover;
-  width: 65%;
+  width: 60%;
   height: 100vh;
 }
 
 .container-login section {
-  width: 35%;
+  width: 40%;
+}
+
+.container-login h1 {
+  margin: 0;
+}
+
+header {
+  margin: 15% 10% 0 5%;
 }
 
 header img {
   width: 100%;
 }
 
-h1 {
-  margin: 0;
+.buttons-container {
+  align-self: center;
+}
+
+footer {
+  background-color: var(--gray);
+  padding: 12% 5%;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 

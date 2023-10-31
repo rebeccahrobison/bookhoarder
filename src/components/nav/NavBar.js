@@ -9,7 +9,6 @@ export const NavBar = () => {
   const [filteredBooks, setFilteredBooks] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
   const navigate = useNavigate()
-  // const location = useLocation()
 
   useEffect(() => {
     getAllBooks().then(data => setBooks(data))
@@ -29,7 +28,7 @@ export const NavBar = () => {
     const handleSearch = (e) => {
       e.preventDefault()
       // if (location.pathname !== "/search") {
-          navigate("/search", { state: filteredBooks })
+          navigate("/search", { state: { filteredBooks, searchTerm } })
       // }
     }
 
@@ -38,7 +37,7 @@ export const NavBar = () => {
       <div className="navbar-container">
         <div className="navbar-logo">
           <Link className="navbar-link" to="/">
-            <img src="/images/BookHoarder.png" alt="BookHoarder Logo"/>
+            <img src="/images/BookHoarderLogo.png" alt="BookHoarder Logo"/>
           </Link>
         </div>
         <ul className="navbar-items">
@@ -60,7 +59,7 @@ export const NavBar = () => {
           {localStorage.getItem("bookhoarder_user") ? (
             <li className="navbar-item">
               <Link
-                className="navbar-link"
+                className="navbar-link logout"
                 to=""
                 onClick={() => {
                   localStorage.removeItem("bookhoarder_user")

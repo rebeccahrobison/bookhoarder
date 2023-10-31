@@ -36,7 +36,7 @@ export const LoginModal = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="danger" onClick={handleShow}>
         Login
       </Button>
 

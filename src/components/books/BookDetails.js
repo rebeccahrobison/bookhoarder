@@ -8,7 +8,6 @@ import { ReturnBookModal } from "../modals/ReturnBookModal"
 import { deleteBorrowedBook, getBorrowedBooks } from "../services/borrowedServices"
 import { addUserReadBook, deleteUserReadBook, getUserReadBooksByUserId } from "../services/userReadServices"
 import { Button } from "react-bootstrap"
-// import { deleteUserBook } from "../services/userBookServices"
 
 export const BookDetails = () => {
   const [book, setBook] = useState({})
@@ -60,12 +59,6 @@ export const BookDetails = () => {
     const foundBorrowedBook = borrowedBooks.filter(book => book.bookId === parseInt(bookId))
     setBorrowedBook(foundBorrowedBook[0])
   }, [borrowedBooks, bookId])
-
-  // useEffect(() => {
-  //   const foundBorrowedBook = borrowedBooks.filter(book => book.bookId === parseInt(bookId))
-  //   setBorrowedBook(foundBorrowedBook[0])
-  // }, [borrowedBooks, bookId])
-
 
 
   const isBorrowed = () => {

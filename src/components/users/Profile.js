@@ -3,8 +3,10 @@ import { useNavigate, useParams } from "react-router-dom"
 import { getAllUsers } from "../services/userServices"
 import { getUserBooksByUserId } from "../services/userBookServices"
 import { getUserReadBooksByUserId } from "../services/userReadServices"
+import "./Profile.css"
+import { Button } from "react-bootstrap"
 
-export const Profile = ({currentUser}) => {
+export const Profile = ({ currentUser }) => {
   const [users, setUsers] = useState([])
   const [user, setUser] = useState({})
   const [userBooks, setUserBooks] = useState([])
@@ -20,7 +22,7 @@ export const Profile = ({currentUser}) => {
   }, [])
 
   useEffect(() => {
-    if(!userId) {
+    if (!userId) {
       const foundUser = users.find(user => user.id === currentUser.id)
       setUser(foundUser)
     } else if (userId) {
@@ -30,14 +32,15 @@ export const Profile = ({currentUser}) => {
   }, [currentUser, users, userId])
 
   useEffect(() => {
-    if(user) {
+    if (user) {
       getUserBooksByUserId(user?.id).then(data => {
-        setUserBooks(data)})
+        setUserBooks(data)
+      })
     }
   }, [user])
 
   useEffect(() => {
-    if(user) {
+    if (user) {
       getUserReadBooksByUserId(user?.id).then(data => setUserReadBooks(data))
     }
   }, [user])
@@ -48,29 +51,32 @@ export const Profile = ({currentUser}) => {
 
   return (
     <div className="profile-container">
-      <h1>Profile</h1>
-      <div className="profile-info">
-        <div className="profile-username">
-          <h2>Name: </h2>
-          <div className="user">{user?.name}</div>
+      <h2>Profile</h2>
+      <div className="profile-items-container">
+        <div className="profile-items">
+          <div className="profile-item">
+            <h5>Name: </h5>
+            <div className="user">{user?.name}</div>
+          </div>
+          <div className="profile-item">
+            <h5>Email: </h5>
+            <div className="email">{user?.email}</div>
+          </div>
+          <div className="profile-item">
+            <h5>#Books Owned: </h5>
+            <div className="books-owned">{userBooks?.length}</div>
+          </div>
+          <div className="profile-item">
+            <h5>#Books Read: </h5>
+            <div className="books-read">{userReadBooks?.length}</div>
+          </div>
         </div>
-        <div className="profile-email">
-          <h2>Email: </h2>
-          <div className="email">{user?.email}</div>
-        </div>
-        <div className="profile-books">
-          <h2>Number of Books Owned: </h2>
-          <div className="books-owned">{userBooks?.length}</div>
-        </div>
-        <div className="profile-books">
-          <h2>Number of Books Read: </h2>
-          <div className="books-read">{userReadBooks?.length}</div>
-        </div>
+
       </div>
       {
         (!userId || currentUser?.id == userId) ? (
           <div className="profile-btns">
-            <button className="edit-btn" onClick={handleEditProfileBtn}>Edit Profile</button>
+            <Button variant="secondary" onClick={handleEditProfileBtn}>Edit Profile</Button>
           </div>
         ) : (
           ""

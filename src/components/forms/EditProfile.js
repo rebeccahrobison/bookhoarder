@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getUserByUserId, updateProfile } from "../services/userServices"
+import { Button } from "react-bootstrap"
 
 export const EditProfile = ({currentUser}) => {
   const [user, setUser] = useState([])
@@ -27,10 +28,10 @@ export const EditProfile = ({currentUser}) => {
 
   return (
     <div className="profile-container">
-      <h1>Profile</h1>
-      <div className="profile-info">
-        <div className="profile-username">
-          <h2>Name: </h2>
+      <h2>Profile</h2>
+      <div className="profile-info-container">
+        <div className="profile-info">
+          <h5>Name: </h5>
           <input 
             type="text" 
             name="name"
@@ -39,8 +40,8 @@ export const EditProfile = ({currentUser}) => {
             onChange={handleInputChange}
           />
         </div>
-        <div className="profile-email">
-          <h2>Email: </h2>
+        <div className="profile-info">
+          <h5>Email: </h5>
           <input 
             type="text"
             name="email"
@@ -50,12 +51,7 @@ export const EditProfile = ({currentUser}) => {
           />
         </div>
       </div>
-      <input
-          type="submit"
-          className="profile-save"
-          value="Save Profile"
-          onClick={handleSave}
-        />
+      <Button variant="danger" onClick={handleSave}>Save Profile</Button>
     </div>
   )
 }

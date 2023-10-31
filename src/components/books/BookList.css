@@ -1,6 +1,5 @@
 .booklist-container {
   margin: 10px;
-  /* border: 1px red solid; */
   border-radius: 10px;
   overflow: hidden;
   perspective: 1px;
@@ -13,9 +12,6 @@
   gap: 0.8rem;
   padding: 10px;
   background-color: var(--white);
-  /* background-image: url("../../../public/images/bookshelf.jpg");
-  background-size: cover;
-*/
 }
 
 .book-info-container {
@@ -39,7 +35,7 @@
 }
 
 .book-info {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   text-align: center;
   width: 100%;
   align-self: center;
@@ -53,10 +49,7 @@
   background-color: var(--gray);
   border-radius: 5px;
   height: 100%;
-  /* display: grid;
-  grid-template-rows: 1.5fr 1fr;
-  /* grid-auto-columns: 1fr; */
-  /* gap: 0.8rem; */
+  transition: all 300ms;
 }
 
 .book .cover {
@@ -75,6 +68,7 @@
 .book:hover {
   transform: scale(1.02);
   background-color: var(--blue);
+  
 }
 
 .book-info-container .title {
@@ -98,18 +92,25 @@
   justify-content: space-between;
   padding: 10px 10px 0 10px;
   background-color: var(--white);
+  margin-top: 20px;
 }
 
 .filter-bar .add-book:hover {
   font-size: 1.03rem;
   color: var(--green);
   text-shadow: 1px 1px 2px var(--gray);
+  transition: all 200ms;
 }
 
 .dropdowns {
   display: flex;
 }
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; */
+
+.dropdowns #sort {
+  margin-right: 15px;
+}
+
+.dropdowns select {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+}

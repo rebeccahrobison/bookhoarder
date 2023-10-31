@@ -7,7 +7,7 @@
 
 .book-form {
   background-color: var(--gray);
-  width: 60%;
+  width: 75%;
   padding: 30px 30px 30px 15px;
   border-radius: 10px;
 }
@@ -26,7 +26,7 @@
 }
 
 .form-group select {
-  border: var(--bs-border-width solide var(--bs-border-color));
+  border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
 }
 
@@ -64,4 +64,9 @@
 
 .buttons-container .btn{
   margin: 3px;
+}
+
+.profile-info input {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
 }

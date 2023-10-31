@@ -5,7 +5,7 @@ import "./BookList.css"
 import { Link } from "react-router-dom"
 import { getUserBooksByUserId } from "../services/userBookServices"
 
-export const BookList = () => {
+export const BookList = ({ currentUser }) => {
   const [allBooks, setAllBooks] = useState([])
   // const [userBooks, setUserBooks] = useState([])
   const [selectedOwner, setSelectedOwner] = useState({id: 0})
@@ -32,7 +32,14 @@ export const BookList = () => {
 
   return (
     <div className="booklist-container">
-      <FilterBar selectedOwner={selectedOwner} setSelectedOwner={setSelectedOwner} filteredBooks={filteredBooks} setFilteredBooks={setFilteredBooks}/>
+      <FilterBar 
+        selectedOwner={selectedOwner} 
+        setSelectedOwner={setSelectedOwner} 
+        filteredBooks={filteredBooks} 
+        setFilteredBooks={setFilteredBooks}
+        currentUser={currentUser}
+        allBooks={allBooks}
+      />
       <div className="booklist">
         {filteredBooks.map(bookObj => {
           return (

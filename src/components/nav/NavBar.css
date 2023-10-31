@@ -39,12 +39,14 @@
   text-decoration: none;
   list-style-type: none;
   color: black;
+  transition: all 200ms;
 }
 
-.navbar-link:hover {
+/* .navbar-link:hover {
   color: var(--red);
   text-shadow: 1px 1px 1px var(--gray);
-}
+  transition: all 200ms;
+} */
 
 .navbar-item form {
   display: flex;
@@ -52,9 +54,20 @@
 
 .navbar-item form input {
   width: 225px;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+}
+
+.navbar-items .logout:hover {
+  color: var(--red);
+  text-shadow: 1px 1px 2px var(--gray);
+  transition: all 200ms;
 }
 
 .navbar-items .profile:hover {
   color: var(--green);
   text-shadow: 1px 1px 2px var(--gray);
+  transition: all 200ms;
 }
+
+

@@ -86,11 +86,18 @@ export const BookForm = ({ book, setBook, userBook, setUserBook }) => {
             type="text"
             name="cover"
             value={book.cover}
-            className="form-control"
+            className="form-control form-cover"
             onChange={(e) => {
               handleInputChange(e)
             }}
           />
+          <div className="form-group-img">
+            {(!book.cover) ?
+              <img src="https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png" alt="Book cover placeholder"/>
+              :
+              <img src={book.cover} alt="Book cover"/>
+            }
+          </div>
         </div>
       </fieldset>
       <fieldset>

@@ -33,6 +33,8 @@
   list-style-type: none;
   text-align: center;
   margin: 0 10px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-link {
@@ -58,6 +60,12 @@
   border-radius: var(--bs-border-radius);
 }
 
+.navbar-items .addbook:hover {
+  color: var(--green);
+  text-shadow: 1px 1px 2px var(--gray);
+  transition: all 200ms;
+}
+
 .navbar-items .logout:hover {
   color: var(--red);
   text-shadow: 1px 1px 2px var(--gray);
@@ -65,9 +73,16 @@
 }
 
 .navbar-items .profile:hover {
-  color: var(--green);
+  color: var(--blue);
   text-shadow: 1px 1px 2px var(--gray);
   transition: all 200ms;
 }
 
+.navbar-item button {
+  display: none;
+}
+
+.navbar-link {
+  display: flex;
+}
 

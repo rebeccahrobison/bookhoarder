@@ -9,7 +9,13 @@ import { getGoogleBookData } from "../services/barcodeServices"
 
 export const AddBook = () => {
   const [book, setBook] = useState(
-    { title: "", author: "", cover: "", genre: "", locationId: 0 }
+    { 
+      title: "", 
+      author: "", 
+      cover: "", 
+      genre: "", 
+      locationId: 0 
+    }
   )
   const [userBook, setUserBook] = useState(
     { bookId: 0, userId: 0 }

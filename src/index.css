@@ -11,7 +11,7 @@
 :root {
   --white: #fcfbf9;
   --black: #07060E;
-  --gray: #939697;
+  --gray: #DFE4E7;
   --blue: #335578;
   --red: #D82602;
   --green: #86B02F;
@@ -54,16 +54,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   background-color: var(--blue);
+  box-shadow: 2px 2px 3px var(--gray);
   border: none;
 }
 
 .btn-primary:hover {
   background-color:#21384e;
+  box-shadow: 1px 1px 3px var(--gray);
   border: none;
 }
 
 .btn-secondary {
   background-color: var(--green);
+  box-shadow: 1px 1px 3px var(--gray);
   border:none;
 }
 
@@ -73,10 +76,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-danger {
   background-color: #D82602;
+  box-shadow: 1px 1px 3px var(--gray);
 }
 
 .btn-danger:hover {
   background-color: #a01c02;
+  box-shadow: 1px 1px 3px var(--gray);
 }
 
 a {
